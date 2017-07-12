@@ -7,27 +7,30 @@ class Scrabble
   end
 
   def score(word)
+    if @word == nil
+      puts 0
+    else
     letters = word.upcase.split('')
     total = 0
     letters.each do |letter|
       total += point_values[letter]
     end
     total
-  end
-
-
-  def score_with_multipliers(word, index, multiplier)
-    #input a word
-    #something.map do |index|
-      index * 
-    #assign the value of the array elements to multiply against the value of the word
-    # the third argument passed muiltiplies the total
-
-
     end
-    total * multiplier
-
   end
+
+
+  # def score_with_multipliers(word, index, multiplier)
+  #   mult_score = []
+  #   #input a word
+  #   #something.map do |index|
+  #     index *
+  #   #assign the value of the array elements to multiply against the value of the word
+  #   # the third argument passed muiltiplies the total
+  #   end
+  #   total * multiplier
+  #
+  # end
 
   def point_values
     {
