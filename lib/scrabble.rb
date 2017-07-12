@@ -1,7 +1,32 @@
 class Scrabble
 
+  attr_reader :word
+
+  def initialize
+    @word = word
+  end
+
   def score(word)
-    1
+    letters = word.upcase.split('')
+    total = 0
+    letters.each do |letter|
+      total += point_values[letter]
+    end
+    total
+  end
+
+
+  def score_with_multipliers(word, index, multiplier)
+    #input a word
+    #something.map do |index|
+      index * 
+    #assign the value of the array elements to multiply against the value of the word
+    # the third argument passed muiltiplies the total
+
+
+    end
+    total * multiplier
+
   end
 
   def point_values
