@@ -1,14 +1,8 @@
 class Scrabble
 
-  attr_reader :word
-
-  def initialize
-    @word = word
-  end
-
   def score(word)
-    if @word == nil
-      puts 0
+    if word == nil
+      return 0
     else
     letters = word.upcase.split('')
     total = 0
@@ -20,17 +14,22 @@ class Scrabble
   end
 
 
-  # def score_with_multipliers(word, index, multiplier)
-  #   mult_score = []
-  #   #input a word
-  #   #something.map do |index|
-  #     index *
-  #   #assign the value of the array elements to multiply against the value of the word
-  #   # the third argument passed muiltiplies the total
-  #   end
-  #   total * multiplier
-  #
-  # end
+  def score_with_multipliers(word, letter_multiplier, word_multiplier = 1)
+    held_score = []
+    letters = word.upcase.split('')
+    if word.length > 6
+      total = 10
+    else
+      total = 0
+    end
+    letters.each do |letter|
+      held_score << point_values[letter]
+    end
+    letter_multiplier.map.with_index do |number, index|
+      total += number * held_score[index]
+    end
+    total * word_multiplier
+  end
 
   def point_values
     {
